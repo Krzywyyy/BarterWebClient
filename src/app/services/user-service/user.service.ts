@@ -7,12 +7,15 @@ import { NetworkProperties } from '../network-properties';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
   login(user: User) {
-    return this.httpClient.post(NetworkProperties.URL + 'users/login', user);
+    return this.httpClient.post(NetworkProperties.URL + 'users/login', user, { observe: 'response' })
+      .subscribe(response => {
+        sessionStorage.setItem('token', response.headers.get('Authorization'));
+      })
   }
 
   register(user: User) {
