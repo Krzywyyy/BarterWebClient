@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/domain/user';
 import { UserService } from '../services/user-service/user.service';
-import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,21 +11,35 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  user:User = new User();
+  user: User = new User();
+  registration: MatDialogRef<any>;
 
   constructor(
-    private httpClient: UserService,
-    private router: Router
-    ) { }
+    private userService: UserService,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit() {
   }
 
-  onSubmit(){
-    this.httpClient.login(this.user);
+  signIn() {
+    this.userService.login(this.user);
   }
 
-  authorized(): boolean{
+  signUp() {
+    if (!this.registration) {
+      this.registration = this.dialog.open(RegisterComponent, {
+        width: '350px'
+      });
+
+      this.registration.afterClosed().subscribe(
+        () => this.registration = undefined
+      );
+    }
+  
+  }
+
+  authorized(): boolean {
     return sessionStorage.getItem('token') != null;
   }
 }

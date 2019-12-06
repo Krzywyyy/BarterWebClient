@@ -1,0 +1,24 @@
+<h1 class="text-center mb-2">Rejestracja</h1>
+<form>
+    <div class="form-group">
+        <h5><label for="userEmail">Email</label></h5>
+        <input class="form-control" id="userEmail" type="text" name="userEmail" [(ngModel)]="user.email"
+            placeholder="Podaj swój studencki email" required>
+        <div *ngIf="!emailIsValid()" class="alert alert-danger">Nieprawidłowy email</div>
+    </div>
+    <div class="form-group">
+        <h5><label for="userPassword">Hasło</label></h5>
+        <input class="form-control" id="userPassword" type="password" name="userPassword" [(ngModel)]="user.password"
+            placeholder="Podaj hasło" required>
+    </div>
+    <div class="form-group">
+        <h5><label for="userRepassword">Powtórz hasło</label></h5>
+        <input class="form-control" id="userRepassword" type="password" name="userRepassword" [(ngModel)]="repassword"
+            placeholder="Podaj swoje hasło ponownie" required>
+        <div *ngIf="!passwordsMatches()" class="alert alert-danger">Podane hasła różnią się</div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button (click)="signUp()" class="btn btn-success">Zarejestruj</button>
+        <button class="btn btn-danger" [mat-dialog-close]>Anuluj</button>
+    </div>
+</form>

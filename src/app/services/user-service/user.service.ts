@@ -19,6 +19,6 @@ export class UserService {
   }
 
   register(user: User) {
-    return this.httpClient.post(NetworkProperties.URL + '/users/register', user);
+    return this.httpClient.post(NetworkProperties.URL + 'users/register', user).subscribe();
   }
 }
