@@ -36,7 +36,6 @@ export class NavBarComponent implements OnInit {
         () => this.registration = undefined
       );
     }
-  
   }
 
   authorized(): boolean {
