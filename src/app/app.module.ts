@@ -5,19 +5,22 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserService } from './services/user-service/user.service';
+import { UserService } from './services/user.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { RegisterComponent } from './register/register.component';
 import { FailedRegistrationDataDialogComponent } from './dialogs/failed-registration-data-dialog/failed-registration-data-dialog.component';
+import { HomeComponent } from './home/home.component';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     RegisterComponent,
-    FailedRegistrationDataDialogComponent
+    FailedRegistrationDataDialogComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { FailedRegistrationDataDialogComponent } from './dialogs/failed-registra
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [UserService],
+  providers: [UserService, ProductService],
   bootstrap: [AppComponent],
   entryComponents: [
     RegisterComponent,

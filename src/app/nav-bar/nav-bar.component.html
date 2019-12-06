@@ -1,12 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="#">Barter Wat</a>
-
-  <div class="collapse navbar-collapse" *ngIf="!authorized()">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse d-flex justify-content-end" *ngIf="!authorized()">
+    <!-- <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link">Produkty</a>
       </li>
-    </ul>
+    </ul> -->
     <form class="form-inline my-2 my-lg-0" (ngSubmit)="signIn()">
       <input class="form-control mr-sm-2" type="email" name="userEmail" placeholder="Email" required
         [(ngModel)]="user.email">

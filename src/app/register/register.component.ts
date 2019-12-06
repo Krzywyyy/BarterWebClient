@@ -1,6 +1,6 @@
 import { Component, ViewChild, TemplateRef, ViewChildren } from '@angular/core';
 import { User } from '../model/domain/user';
-import { UserService } from '../services/user-service/user.service';
+import { UserService } from '../services/user.service';
 import { MatDialog } from '@angular/material';
 import { FailedRegistrationDataDialogComponent } from '../dialogs/failed-registration-data-dialog/failed-registration-data-dialog.component';
 
