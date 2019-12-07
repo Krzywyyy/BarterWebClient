@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/domain/product';
-import { Observable } from 'rxjs';
 import { ProductService } from '../services/product.service';
+import { ProductCategory } from '../model/enums/product-category.enum';
+import { Specialization } from '../model/enums/specialization.enum';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,17 @@ import { ProductService } from '../services/product.service';
 })
 export class HomeComponent implements OnInit {
 
-  products: any;
+  products: Array<Product>;
 
   constructor(private productService: ProductService) { }
+
+  showCategory(product: Product): string {
+    return ProductCategory[product.category];
+  }
+
+  showSpecialization(product: Product): string {
+    return Specialization[product.specialization];
+  }
 
   ngOnInit() {
     this.productService.findAll(1).subscribe(

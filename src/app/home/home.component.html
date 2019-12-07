@@ -11,7 +11,8 @@
                         <h5>{{product.title}}</h5>
                     </div>
                     <div class="card-subtitle">
-                        <p>{{product.category}} > {{product.specialization}}</p>
+                        <p class="text-secondary">{{showCategory(product)}} > {{showSpecialization(product)}}</p>
+                        <p>{{product.address}}</p>
                     </div>
                 </div>
             </div>
