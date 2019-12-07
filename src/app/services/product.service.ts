@@ -16,8 +16,8 @@ export class ProductService {
     this.httpClient.post(this.url, product);
   }
 
-  findAll(page: number) {
-    return this.httpClient.get(this.url + '?page=' + page);
+  findAll(page: number): Observable<Array<Product>> {
+    return this.httpClient.get<Array<Product>>(this.url + '?page=' + page);
   }
 
   findAllUserProducts(): any {
