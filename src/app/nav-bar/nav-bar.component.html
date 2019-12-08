@@ -7,10 +7,14 @@
       </li>
     </ul> -->
     <form class="form-inline my-2 my-lg-0" (ngSubmit)="signIn()">
-      <input class="form-control mr-sm-2" type="email" name="userEmail" placeholder="Email" required
-        [(ngModel)]="user.email">
-      <input class="form-control mr-sm-2" type="password" name="userPassword" placeholder="Hasło" required
-        [(ngModel)]="user.password">
+      <label>
+        <input class="form-control mr-sm-2" type="email" name="userEmail" placeholder="Email" required
+          [(ngModel)]="user.email">
+      </label>
+      <label>
+        <input class="form-control mr-sm-2" type="password" name="userPassword" placeholder="Hasło" required
+          [(ngModel)]="user.password">
+      </label>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zaloguj</button>
       <a (click)="signUp()" class="btn text-light">Zarejestruj</a>
     </form>

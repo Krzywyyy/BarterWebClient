@@ -6,6 +6,7 @@ export class Product {
     title: string;
     description: string;
     image: string;
+    address: string;
     category: ProductCategory;
     specialization: Specialization;
     userId: number;

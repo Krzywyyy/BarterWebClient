@@ -1,4 +1,4 @@
-import { Component, ViewChild, TemplateRef, ViewChildren } from '@angular/core';
+import { Component, TemplateRef, ViewChildren } from '@angular/core';
 import { User } from '../model/domain/user';
 import { UserService } from '../services/user.service';
 import { MatDialog } from '@angular/material';
@@ -22,13 +22,15 @@ export class RegisterComponent {
   ) { }
 
   emailIsValid() {
-    if (this.user.email != null)
+    if (this.user.email != null) {
       return this.user.email.toLowerCase().match('[a-z]+(.)[a-z]+[0-9]*(@student.wat.edu.pl)');
+    }
   }
 
   passwordsMatches() {
-    if (this.repassword != null)
+    if (this.repassword != null) {
       return this.user.password === this.repassword;
+    }
   }
 
   signUp() {

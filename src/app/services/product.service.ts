@@ -9,8 +9,9 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class ProductService {
 
-  constructor(private httpClient: HttpClient) { }
   url = NetworkProperties.URL + 'products';
+
+  constructor(private httpClient: HttpClient) { }
 
   save(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(this.url, product);
@@ -25,10 +26,10 @@ export class ProductService {
   }
 
   find(id: number): Observable<Product> {
-    return this.httpClient.get<Product>(this.url + '/' + id)
+    return this.httpClient.get<Product>(this.url + '/' + id);
   }
 
   delete(id: number) {
-    return this.httpClient.delete(this.url + '/{id}')
+    return this.httpClient.delete(this.url + '/{id}');
   }
 }

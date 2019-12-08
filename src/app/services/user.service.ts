@@ -9,7 +9,7 @@ import { NetworkProperties } from './network-properties';
 })
 export class UserService {
 
-  url = NetworkProperties.URL + 'users'
+  url = NetworkProperties.URL + 'users';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class UserService {
     return this.httpClient.post(this.url + '/login', user, { observe: 'response' })
       .subscribe(response => {
         sessionStorage.setItem('token', response.headers.get('Authorization'));
-      })
+      });
   }
 
   register(user: User) {
