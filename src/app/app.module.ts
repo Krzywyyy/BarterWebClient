@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { FailedRegistrationDataDialogComponent } from './dialogs/failed-registration-data-dialog/failed-registration-data-dialog.component';
 import { HomeComponent } from './home/home.component';
 import { ProductService } from './services/product.service';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductService } from './services/product.service';
     NavBarComponent,
     RegisterComponent,
     FailedRegistrationDataDialogComponent,
-    HomeComponent
+    HomeComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@
     <div class="home-products">
         <div class="row d-flex justify-content-between">
             <div class="card mt-5" style="width: 15rem" *ngFor="let product of products">
-                <a title="{{product.title}}" href="products/{{product.id}}">
+                <a title="{{product.title}}" [routerLink]="['products', product.id]">
                     <img class="card-img-top md-2" src="data:image/jpg;base64,{{product.image}}"
                         alt="{{product.title}}}">
                 </a>
@@ -11,7 +11,7 @@
                         <h5>{{product.title}}</h5>
                     </div>
                     <div class="card-subtitle">
-                        <p class="text-secondary">{{showCategory(product)}} > {{showSpecialization(product)}}</p>
+                        <p class="text-secondary">{{getCategory(product.category)}} > {{getSpecialization(product.specialization)}}</p>
                         <p>{{product.address}}</p>
                     </div>
                 </div>

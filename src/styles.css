@@ -10,7 +10,8 @@ html, body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    margin-top: 60px;
+    margin-top: 50px;
+    background-color: #eeeeee;
 }
 
 nav {

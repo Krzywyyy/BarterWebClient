@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../model/domain/product';
 import { NetworkProperties } from './network-properties';
 import { Observable } from 'rxjs/internal/Observable';
@@ -12,20 +12,20 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
   url = NetworkProperties.URL + 'products';
 
-  save(product: Product): any {
-    this.httpClient.post(this.url, product);
+  save(product: Product): Observable<Product> {
+    return this.httpClient.post<Product>(this.url, product);
   }
 
   findAll(page: number): Observable<Array<Product>> {
     return this.httpClient.get<Array<Product>>(this.url + '?page=' + page);
   }
 
-  findAllUserProducts(): any {
-    return this.httpClient.get(this.url + '/my');
+  findAllUserProducts(): Observable<Array<Product>> {
+    return this.httpClient.get<Array<Product>>(this.url + '/my');
   }
 
-  find(id: number) {
-    return this.httpClient.get(this.url + '/${id}')
+  find(id: number): Observable<Product> {
+    return this.httpClient.get<Product>(this.url + '/' + id)
   }
 
   delete(id: number) {

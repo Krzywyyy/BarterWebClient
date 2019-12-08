@@ -15,18 +15,17 @@ export class HomeComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
 
-  showCategory(product: Product): string {
-    return ProductCategory[product.category];
-  }
-
-  showSpecialization(product: Product): string {
-    return Specialization[product.specialization];
-  }
-
   ngOnInit() {
     this.productService.findAll(1).subscribe(
       data => this.products = data
     );
   }
 
+  getCategory(category: ProductCategory): string {
+    return ProductCategory[category];
+  }
+
+  getSpecialization(specialization: Specialization): string {
+    return Specialization[specialization];
+  }
 }
