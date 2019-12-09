@@ -6,6 +6,7 @@ import {Specialization} from '../model/enums/specialization.enum';
 import {ProductCategory} from '../model/enums/product-category.enum';
 import {Offer} from '../model/domain/offer';
 import {OfferService} from '../services/offer.service';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-product-details',
@@ -14,16 +15,18 @@ import {OfferService} from '../services/offer.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  id: number;
+  private id: number;
   private subscription: any;
   private product: Product = new Product();
   private offer: Offer = new Offer();
+  private offerDone;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private offerService: OfferService
   ) {
+    this.offerDone = false;
   }
 
   ngOnInit() {
@@ -49,7 +52,15 @@ export class ProductDetailsComponent implements OnInit {
     this.offer.productId = this.product.id;
     this.offer.title = this.product.title;
     this.offerService.save(this.offer).subscribe(
-      response => console.log(response.message)
+      () => this.offerDone = true
     );
+  }
+
+  authorized() {
+    return AppComponent.isAuthorized();
+  }
+
+  offerMade(): boolean {
+    return this.offerDone;
   }
 }

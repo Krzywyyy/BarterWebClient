@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {UserService} from './services/user.service';
@@ -16,6 +15,8 @@ import {ProductService} from './services/product.service';
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {OfferService} from './services/offer.service';
 import {AuthenticationInterceptor} from './network/authentication-interceptor';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UserProductsComponent } from './user-products/user-products.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import {AuthenticationInterceptor} from './network/authentication-interceptor';
     RegisterComponent,
     FailedRegistrationDataDialogComponent,
     HomeComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    UserProductsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     BrowserAnimationsModule,
     MaterialModule
   ],

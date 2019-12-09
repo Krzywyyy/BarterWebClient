@@ -14,10 +14,7 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   login(user: User) {
-    return this.httpClient.post(this.url + '/login', user, { observe: 'response' })
-      .subscribe(response => {
-        sessionStorage.setItem('token', response.headers.get('Authorization'));
-      });
+    return this.httpClient.post(this.url + '/login', user, { observe: 'response' });
   }
 
   register(user: User) {

@@ -21,18 +21,25 @@
     </div>
   </div>
 
-  <div class="pt-5 pb-5">
-    <div class="ml-3">
-      <h3>Złóż ofertę</h3>
-    </div>
-    <div>
-      <label class="input-group">
+  <div class="pt-5 pb-5" *ngIf="authorized()">
+   <div *ngIf="!offerMade()">
+     <div class="ml-3">
+       <h3>Złóż ofertę</h3>
+     </div>
+     <div>
+       <label class="input-group">
         <textarea class="form-control mt-2" rows="7" placeholder="Podaj swoją ofertę"
                   [(ngModel)]="offer.message"></textarea>
-      </label>
-    </div>
-    <div class="d-flex justify-content-end mt-3">
-      <button (click)="makeAnOffer()" class="btn btn-success">Złóż ofertę</button>
+       </label>
+     </div>
+     <div class="d-flex justify-content-end mt-3">
+       <button (click)="makeAnOffer()" class="btn btn-success">Złóż ofertę</button>
+     </div>
+   </div>
+    <div *ngIf="offerMade()">
+      <div class="card text-center py-5 px-2">
+        <h3>Pomyślnie złożono ofertę</h3>
+      </div>
     </div>
   </div>
 </div>
