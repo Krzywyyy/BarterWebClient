@@ -20,7 +20,6 @@ import { UserProductsComponent } from './user-products/user-products.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { UserOffersComponent } from './user-offers/user-offers.component';
 import { FilteredProductsComponent } from './filtered-products/filtered-products.component';
-import { DeleteConfirmationDialogComponent } from './dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,7 @@ import { DeleteConfirmationDialogComponent } from './dialogs/delete-confirmation
     UserProductsComponent,
     NewProductComponent,
     UserOffersComponent,
-    FilteredProductsComponent,
-    DeleteConfirmationDialogComponent,
+    FilteredProductsComponent
   ],
   imports: [
     BrowserModule,

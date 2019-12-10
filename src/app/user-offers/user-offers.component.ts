@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {Offer} from '../model/domain/offer';
 import {OfferService} from '../services/offer.service';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-user-offers',
@@ -10,8 +11,10 @@ import {OfferService} from '../services/offer.service';
 export class UserOffersComponent implements OnInit {
 
   private userOffers: Array<Offer>;
+  private offerId: number;
 
-  constructor(private offerService: OfferService) {
+  constructor(private offerService: OfferService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -20,11 +23,22 @@ export class UserOffersComponent implements OnInit {
     );
   }
 
-  deleteOffer(offerId: number) {
-    this.offerService.delete(offerId).subscribe(
+  showDeleteConfirmation(confirmationDialog: TemplateRef<any>, offerId: number) {
+    this.dialog.open(confirmationDialog);
+    this.offerId = offerId;
+  }
+
+  deleteOffer() {
+    this.offerService.delete(this.offerId).subscribe(
       () => {
+        this.offerId = undefined;
+        this.dialog.closeAll();
         this.ngOnInit();
       }
     );
+  }
+
+  clearOfferId() {
+    this.offerId = undefined;
   }
 }

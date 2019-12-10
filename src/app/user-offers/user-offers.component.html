@@ -4,23 +4,34 @@
     <h2>Twoje oferty:</h2>
   </div>
   <div class="card px-4 py-2 mt-3" *ngFor="let offer of userOffers">
-      <div>
-        <div class="mt-2">
-          <p><b>Produkt:</b> {{offer.title}}</p>
-        </div>
-        <div>
-          <p><b>Opis:</b> {{offer.message}}</p>
-        </div>
-        <div>
-          <p><b>Data złożenia oferty: </b>{{offer.offerDate | date: 'dd.MM.yyyy hh:mm'}}</p>
-        </div>
+    <div>
+      <div class="mt-2">
+        <p><b>Produkt:</b> {{offer.title}}</p>
       </div>
-      <div class="row mb-2">
-        <div class="d-flex align-items-end">
-          <button [routerLink]="['/products/details/' + offer.productId]" class="btn btn-secondary mx-3">Wyświetl produkt</button>
-          <button (click)="deleteOffer(offer.id)" class="btn btn-danger">Anuluj ofertę</button>
-        </div>
+      <div>
+        <p><b>Opis:</b> {{offer.message}}</p>
+      </div>
+      <div>
+        <p><b>Data złożenia oferty: </b>{{offer.offerDate | date: 'dd.MM.yyyy hh:mm'}}</p>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="d-flex align-items-end">
+        <button [routerLink]="['/products/details/' + offer.productId]" class="btn btn-secondary mx-3">Wyświetl
+          produkt
+        </button>
+        <button (click)="showDeleteConfirmation(confirmDelete, offer.id)" class="btn btn-danger">Anuluj ofertę</button>
       </div>
     </div>
   </div>
+</div>
+<ng-template #confirmDelete>
+    <h4 class="text-center">Czy na pewno chcesz anulować swoją ofertę??</h4>
+    <div class="d-flex justify-content-end mt-3">
+      <button (click)="deleteOffer()" class="mx-2 btn btn-danger">Usuń</button>
+      <button class="mx-2 btn btn-secondary" (click)="clearOfferId()" [mat-dialog-close]>Anuluj</button>
+    </div>
+</ng-template>
 </body>
+
+
