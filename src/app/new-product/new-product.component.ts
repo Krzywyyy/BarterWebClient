@@ -4,6 +4,8 @@ import {ProductService} from '../services/product.service';
 import {Router} from '@angular/router';
 import {ProductCategory} from '../model/enums/product-category.enum';
 import {Specialization} from '../model/enums/specialization.enum';
+import {GoogleAddressService} from '../services/google-address.service';
+import {GoogleApiKey} from '../model/maps/google-api-key';
 
 @Component({
   selector: 'app-new-product',
@@ -17,16 +19,32 @@ export class NewProductComponent implements OnInit {
   categoryKeys = Object.keys(this.categories);
   specializations = Specialization;
   specializationKeys = Object.keys(this.specializations);
+  address = '';
+  added: boolean;
 
   constructor(private productService: ProductService,
+              private googleService: GoogleAddressService,
               private router: Router) {
   }
 
   ngOnInit() {
+    this.added = false;
   }
 
   addNewProduct() {
-    this.productService.save(this.product);
+    this.googleService.getCoordinates(this.address, GoogleApiKey.apiKey).subscribe(
+      response => {
+        this.product.address = response.results[0].formatted_address;
+        this.product.latitude = response.results[0].geometry.location.lat;
+        this.product.longitude = response.results[0].geometry.location.lng;
+        this.productService.save(this.product).subscribe(
+          () => {
+            this.added = true;
+            this.scrollToTop();
+          }
+        );
+      }
+    );
   }
 
   processFile(imageInput: any) {
@@ -38,5 +56,17 @@ export class NewProductComponent implements OnInit {
     });
 
     reader.readAsDataURL(file);
+  }
+
+  productAdded(): boolean {
+    return this.added;
+  }
+
+  goToMyProducts() {
+    this.router.navigateByUrl('/products/my');
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 }

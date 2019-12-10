@@ -7,6 +7,8 @@ export class Product {
     description: string;
     image: string;
     address: string;
+    latitude: number;
+    longitude: number;
     category: ProductCategory;
     specialization: Specialization;
     userId: number;

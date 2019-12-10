@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit, TemplateRef} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../model/domain/product';
 import {ProductService} from '../services/product.service';
 import {Specialization} from '../model/enums/specialization.enum';
@@ -8,6 +8,7 @@ import {Offer} from '../model/domain/offer';
 import {OfferService} from '../services/offer.service';
 import {AppComponent} from '../app.component';
 import * as jwt_decode from 'jwt-decode';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-product-details',
@@ -25,7 +26,9 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private offerService: OfferService
+    private offerService: OfferService,
+    private router: Router,
+    private dialog: MatDialog
   ) {
     this.offerDone = false;
   }
@@ -66,8 +69,24 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   currentUserProduct() {
-    const decoded = jwt_decode(sessionStorage.getItem('token').split(' ')[1]);
-    const userId = decoded.userId;
-    return this.product.userId === userId;
+    const token = sessionStorage.getItem('token');
+    if (token !== null) {
+      const decoded = jwt_decode(token.split(' ')[1]);
+      const userId = decoded.userId;
+      return this.product.userId === userId;
+    } else {
+      return false;
+    }
+  }
+
+  showDeleteConfirmation(confirmationDialog: TemplateRef<any>) {
+    this.dialog.open(confirmationDialog);
+  }
+
+  deleteProduct() {
+    this.productService.delete(this.id).subscribe(() => {
+      this.dialog.closeAll();
+      this.router.navigateByUrl('/products/my');
+    });
   }
 }
