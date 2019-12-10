@@ -16,4 +16,12 @@ export class OfferService {
   save(offer: Offer): Observable<Offer> {
     return this.httpClient.post<Offer>(this.url, offer);
   }
+
+  findAllUserOffers(): Observable<Array<Offer>> {
+    return this.httpClient.get<Array<Offer>>(this.url);
+  }
+
+  delete(offerId: number) {
+    return this.httpClient.delete(this.url + '/' + offerId);
+  }
 }

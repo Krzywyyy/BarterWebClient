@@ -18,6 +18,6 @@ export class UserService {
   }
 
   register(user: User) {
-    return this.httpClient.post(this.url + '/register', user).subscribe();
+    return this.httpClient.post(this.url + '/register', user);
   }
 }

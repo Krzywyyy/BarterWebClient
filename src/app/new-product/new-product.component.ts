@@ -26,14 +26,14 @@ export class NewProductComponent implements OnInit {
   }
 
   addNewProduct() {
-    this.productService.save(this.product);sss
+    this.productService.save(this.product);
   }
 
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
     const reader: FileReader = new FileReader();
 
-    reader.onloadend = (ev => {
+    reader.onloadend = (() => {
       this.product.image = reader.result.toString().split('base64,')[1];
     });
 

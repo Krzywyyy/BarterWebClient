@@ -20,7 +20,7 @@
         <a ngbDropdownToggle class="text-light mr-2 text-capitalize">{{getUsername()}}</a>
         <div ngbDropdownMenu class="dropdown-menu-right text-left mt-3">
           <a [routerLink]="['/products/my']" ngbDropdownItem>Moje produkty</a>
-          <a ngbDropdownItem>Moje oferty</a>
+          <a [routerLink]="['/offers/my']" ngbDropdownItem>Moje oferty</a>
           <div class="dropdown-divider"></div>
           <a (click)="signOut()" ngbDropdownItem>Wyloguj się</a>
         </div>

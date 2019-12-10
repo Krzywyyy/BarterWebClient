@@ -18,6 +18,9 @@ import {AuthenticationInterceptor} from './network/authentication-interceptor';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserProductsComponent } from './user-products/user-products.component';
 import { NewProductComponent } from './new-product/new-product.component';
+import { UserOffersComponent } from './user-offers/user-offers.component';
+import { FilteredProductsComponent } from './filtered-products/filtered-products.component';
+import { DeleteConfirmationDialogComponent } from './dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { NewProductComponent } from './new-product/new-product.component';
     ProductDetailsComponent,
     UserProductsComponent,
     NewProductComponent,
+    UserOffersComponent,
+    FilteredProductsComponent,
+    DeleteConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

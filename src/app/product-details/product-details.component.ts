@@ -68,7 +68,6 @@ export class ProductDetailsComponent implements OnInit {
   currentUserProduct() {
     const decoded = jwt_decode(sessionStorage.getItem('token').split(' ')[1]);
     const userId = decoded.userId;
-    console.log(decoded);
     return this.product.userId === userId;
   }
 }
