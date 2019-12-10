@@ -17,6 +17,7 @@ import {OfferService} from './services/offer.service';
 import {AuthenticationInterceptor} from './network/authentication-interceptor';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserProductsComponent } from './user-products/user-products.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UserProductsComponent } from './user-products/user-products.component';
     HomeComponent,
     ProductDetailsComponent,
     UserProductsComponent,
+    NewProductComponent,
   ],
   imports: [
     BrowserModule,

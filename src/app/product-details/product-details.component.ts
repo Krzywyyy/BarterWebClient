@@ -7,6 +7,7 @@ import {ProductCategory} from '../model/enums/product-category.enum';
 import {Offer} from '../model/domain/offer';
 import {OfferService} from '../services/offer.service';
 import {AppComponent} from '../app.component';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-product-details',
@@ -62,5 +63,12 @@ export class ProductDetailsComponent implements OnInit {
 
   offerMade(): boolean {
     return this.offerDone;
+  }
+
+  currentUserProduct() {
+    const decoded = jwt_decode(sessionStorage.getItem('token').split(' ')[1]);
+    const userId = decoded.userId;
+    console.log(decoded);
+    return this.product.userId === userId;
   }
 }

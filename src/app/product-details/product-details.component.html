@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div class="pt-5 pb-5" *ngIf="authorized()">
+  <div class="pt-5 pb-5" *ngIf="authorized() && !currentUserProduct()">
    <div *ngIf="!offerMade()">
      <div class="ml-3">
        <h3>Złóż ofertę</h3>

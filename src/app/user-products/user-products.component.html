@@ -1,29 +1,24 @@
 <body>
-<div class="single-row-products">
+<div class="single-row-products mb-5">
   <div>
     <h2>Twoje produkty:</h2>
   </div>
-  <div class="card mt-2" *ngFor="let product of userProducts">
-    <div>
-      <table>
-        <tr>
-          <td>
-            <div class="card mx-2 my-2">
-              <img src="data:image/jpg;base64,{{product.image}}" alt="{{product.title}}}">
-            </div>
-          </td>
-          <td>
-            <div class="">
-              <div class="ml-3">
-                <p><b>Produkt:</b> {{product.title}}</p>
-              </div>
-              <div>
-                <p><b>Opis:</b> {{product.description}}</p>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </table>
+  <div class="card px-4 py-2 mt-3" *ngFor="let product of userProducts">
+    <div class="row">
+      <div class="card">
+        <img src="data:image/jpg;base64,{{product.image}}" alt="{{product.title}}}">
+      </div>
+      <div class="col">
+        <div class="mt-2">
+          <p><b>Produkt:</b> {{product.title}}</p>
+        </div>
+        <div>
+          <p><b>Opis:</b> {{product.description}}</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-end">
+        <button class="btn btn-secondary">Szczegóły</button>
+      </div>
     </div>
   </div>
 </div>
