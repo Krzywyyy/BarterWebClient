@@ -29,6 +29,8 @@ export class NewProductComponent implements OnInit {
 
   ngOnInit() {
     this.added = false;
+    this.product.title = '';
+    this.product.description = '';
   }
 
   addNewProduct() {
