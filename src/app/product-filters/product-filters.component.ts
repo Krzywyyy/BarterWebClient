@@ -1,7 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ProductCategory} from '../model/enums/product-category.enum';
 import {Specialization} from '../model/enums/specialization.enum';
 import {Filter} from '../model/domain/filter';
+import {FilterDataService} from '../services/filter-data.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HomeComponent} from '../home/home.component';
 
 @Component({
   selector: 'app-product-filters',
@@ -19,17 +22,18 @@ export class ProductFiltersComponent implements OnInit {
 
   filter: Filter = new Filter();
 
-  constructor() {
+  constructor(private filterDataService: FilterDataService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.clearFilters();
   }
 
-  findProducts() {
-    console.log('szukam ' + this.filter.searchText);
-    console.log('kategoria ' + this.filter.category);
-    console.log('specjalizacja ' + this.filter.specialization);
+  changeFilters() {
+    this.filterDataService.changeFilters(this.filter);
+    this.changeComponentIfRequired();
   }
 
   clearFilters() {
@@ -44,5 +48,11 @@ export class ProductFiltersComponent implements OnInit {
 
   hideOrShowFilters() {
     this.expanded = !this.expanded;
+  }
+
+  changeComponentIfRequired() {
+    if (this.activatedRoute.component === HomeComponent) {
+      this.router.navigateByUrl('/products');
+    }
   }
 }

@@ -11,7 +11,7 @@
     <div class="row d-flex justify-content-between mx-1">
       <div class="form-group">
         <h3><label for="productCategory">Kategoria</label></h3>
-        <select class="form-control" id="productCategory" name="productCategory" [(ngModel)]="filter.category" (selectstart)="specialization.ALL" >
+        <select class="form-control" id="productCategory" name="productCategory" [(ngModel)]="filter.category">
           <option *ngFor="let key of categoryKeys" [value]="key" [label]="category[key]"></option>
         </select>
       </div>
@@ -23,8 +23,8 @@
       </div>
     </div>
     <div class="row d-flex justify-content-end mx-2">
-      <button (click)="clearFilters()" class="btn btn-danger mx-3">Wyczyść filtry</button>
-      <button (click)="findProducts()" class="btn btn-secondary px-2">Wyszukaj</button>
+      <button (click)="clearFilters()" type="button" class="btn btn-danger mx-3">Wyczyść filtry</button>
+      <button (click)="changeFilters()" type="button" class="btn btn-secondary px-2">Wyszukaj</button>
     </div>
   </form>
 </div>

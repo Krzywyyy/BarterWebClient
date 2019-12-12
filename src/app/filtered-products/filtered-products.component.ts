@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../services/product.service';
 import {Product} from '../model/domain/product';
-import {Specialization} from '../model/enums/specialization.enum';
-import {ProductCategory} from '../model/enums/product-category.enum';
+import {FilterDataService} from '../services/filter-data.service';
+import {Filter} from '../model/domain/filter';
 
 @Component({
   selector: 'app-filtered-products',
@@ -13,18 +13,22 @@ export class FilteredProductsComponent implements OnInit {
 
   products: Array<Product>;
   page = 1;
+  filter: Filter = new Filter();
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private filterDataService: FilterDataService) {
   }
 
   ngOnInit() {
-    this.productService.findAll(this.page).subscribe(data => {
-        if (data.length > 0) {
+    this.filterDataService.currentFilters.subscribe(filter => {
+      this.filter = filter;
+      this.page = 1;
+      this.productService.findAll(this.page, filter.searchText, filter.category, filter.specialization).subscribe(data => {
           this.products = data;
           this.scrollToTop();
         }
-      }
-    );
+      );
+    });
   }
 
   nextPage() {
