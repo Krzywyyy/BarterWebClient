@@ -20,6 +20,7 @@ import { UserProductsComponent } from './user-products/user-products.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { UserOffersComponent } from './user-offers/user-offers.component';
 import { FilteredProductsComponent } from './filtered-products/filtered-products.component';
+import { ProductFiltersComponent } from './product-filters/product-filters.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FilteredProductsComponent } from './filtered-products/filtered-products
     UserProductsComponent,
     NewProductComponent,
     UserOffersComponent,
-    FilteredProductsComponent
+    FilteredProductsComponent,
+    ProductFiltersComponent
   ],
   imports: [
     BrowserModule,

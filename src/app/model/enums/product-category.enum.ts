@@ -1,6 +1,7 @@
 export enum ProductCategory {
-    BOOK = 'Ksiażki',
-    NOTES = 'Notatki',
-    COACHING = 'Korepetycje',
-    OTHER = 'Inne'
+  ALL = 'Wszystkie',
+  BOOK = 'Ksiażki',
+  NOTES = 'Notatki',
+  COACHING = 'Korepetycje',
+  OTHER = 'Inne'
 }

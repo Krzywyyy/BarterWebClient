@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from '../model/domain/product';
 import { NetworkProperties } from './network-properties';
 import { Observable } from 'rxjs/internal/Observable';
+import {ProductCategory} from '../model/enums/product-category.enum';
 
 @Injectable({
   providedIn: 'root'

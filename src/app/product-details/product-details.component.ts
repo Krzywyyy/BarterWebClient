@@ -31,6 +31,7 @@ export class ProductDetailsComponent implements OnInit {
     private dialog: MatDialog
   ) {
     this.offerDone = false;
+    this.offer.message = '';
   }
 
   ngOnInit() {

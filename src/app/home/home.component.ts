@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../model/domain/product';
-import { ProductService } from '../services/product.service';
-import { ProductCategory } from '../model/enums/product-category.enum';
-import { Specialization } from '../model/enums/specialization.enum';
+import {Component, OnInit} from '@angular/core';
+import {Product} from '../model/domain/product';
+import {ProductService} from '../services/product.service';
+import {ProductCategory} from '../model/enums/product-category.enum';
+import {Specialization} from '../model/enums/specialization.enum';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
 
   products: Array<Product>;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {
+  }
 
   ngOnInit() {
     this.productService.findAll(1).subscribe(

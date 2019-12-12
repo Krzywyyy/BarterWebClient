@@ -1,0 +1,30 @@
+<div class="card filters">
+  <div class="d-flex justify-content-end mt-2">
+    <a (click)="hideOrShowFilters()" class="btn text-secondary">{{expandedButtonText()}}</a>
+  </div>
+  <form class="mb-2" *ngIf="expanded">
+    <div class="form-group">
+      <h3><label for="searchText">Wyszukaj produkt:</label></h3>
+      <input id="searchText" name="searchText" class="form-control" type="text" placeholder="Wyszukaj produkt"
+             [(ngModel)]="filter.searchText">
+    </div>
+    <div class="row d-flex justify-content-between mx-1">
+      <div class="form-group">
+        <h3><label for="productCategory">Kategoria</label></h3>
+        <select class="form-control" id="productCategory" name="productCategory" [(ngModel)]="filter.category" (selectstart)="specialization.ALL" >
+          <option *ngFor="let key of categoryKeys" [value]="key" [label]="category[key]"></option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h3><label for="specialization">Specjalizacja</label></h3>
+        <select class="form-control" id="specialization" name="specialization" [(ngModel)]="filter.specialization">
+          <option *ngFor="let key of specializationKeys" [value]="key" [label]="specialization[key]"></option>
+        </select>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-end mx-2">
+      <button (click)="clearFilters()" class="btn btn-danger mx-3">Wyczyść filtry</button>
+      <button (click)="findProducts()" class="btn btn-secondary px-2">Wyszukaj</button>
+    </div>
+  </form>
+</div>

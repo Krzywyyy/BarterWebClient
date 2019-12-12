@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'products/my', component: UserProductsComponent},
   {path: 'products/new', component: NewProductComponent},
   {path: 'offers/my', component: UserOffersComponent},
+  {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

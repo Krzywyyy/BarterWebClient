@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ProductService} from '../services/product.service';
 import {Product} from '../model/domain/product';
+import {Specialization} from '../model/enums/specialization.enum';
+import {ProductCategory} from '../model/enums/product-category.enum';
 
 @Component({
   selector: 'app-filtered-products',
