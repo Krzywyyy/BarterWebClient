@@ -26,7 +26,7 @@ export class ProductOffersComponent implements OnInit {
       if (productId > 0) {
         this.productId = productId;
         this.offerService.findAllByProduct(this.productId).subscribe(
-          data => this.offers = data
+          data => this.offers = data.sort((o1, o2) => new Date(o2.confirmDate).getTime() - new Date(o1.confirmDate).getTime())
         );
       }
     });
@@ -50,7 +50,9 @@ export class ProductOffersComponent implements OnInit {
   }
 
   offerAccepted(offer: Offer): boolean {
-    return offer.confirmDate === new Date();
+    const offerDate = new Date(offer.confirmDate);
+    const rejectOfferDate = new Date(Date.UTC(1970, 0, 1, 0, 0, 0, 0));
+    return offerDate.getTime() !== rejectOfferDate.getTime();
   }
 
   consider(offerId: number, template: TemplateRef<any>) {
