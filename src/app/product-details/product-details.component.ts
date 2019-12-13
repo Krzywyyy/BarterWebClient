@@ -77,7 +77,7 @@ export class ProductDetailsComponent implements OnInit {
   currentUserProduct() {
     const token = sessionStorage.getItem('token');
     if (token !== null) {
-      const decoded = jwt_decode(token.split(' ')[1]);
+      const decoded = jwt_decode(token);
       const userId = decoded.userId;
       return this.product.userId === userId;
     } else {

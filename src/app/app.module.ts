@@ -22,6 +22,10 @@ import { UserOffersComponent } from './user-offers/user-offers.component';
 import { FilteredProductsComponent } from './filtered-products/filtered-products.component';
 import { ProductFiltersComponent } from './product-filters/product-filters.component';
 import { ProductOffersComponent } from './product-offers/product-offers.component';
+import {AuthService} from './services/api/auth.service';
+import {AuthGuardService} from './services/api/auth-guard.service';
+import {GoogleAddressService} from './services/api/google-address.service';
+import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -53,9 +57,14 @@ import { ProductOffersComponent } from './product-offers/product-offers.componen
       useClass: AuthenticationInterceptor,
       multi: true
     },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     UserService,
     ProductService,
-    OfferService
+    OfferService,
+    AuthService,
+    AuthGuardService,
+    GoogleAddressService,
+    JwtHelperService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

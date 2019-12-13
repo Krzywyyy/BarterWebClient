@@ -26,14 +26,14 @@ export class NavBarComponent implements OnInit {
   }
 
   getUsername() {
-    const decoded = jwt_decode(sessionStorage.getItem('token').split(' ')[1]);
+    const decoded = jwt_decode(sessionStorage.getItem('token'));
     const userEmail = decoded.sub;
     return userEmail.split('@')[0].replace('.', ' ');
   }
 
   signIn() {
     this.userService.login(this.user).subscribe(response => {
-      sessionStorage.setItem('token', response.headers.get('Authorization'));
+      sessionStorage.setItem('token', response.headers.get('Authorization').split(' ')[1]);
     });
   }
 
