@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductService} from '../services/product.service';
+import {ProductService} from '../services/api/product.service';
 import {Product} from '../model/domain/product';
-import {FilterDataService} from '../services/filter-data.service';
+import {FilterDataService} from '../services/componentDataSharing/filter-data.service';
 import {Filter} from '../model/domain/filter';
 
 @Component({

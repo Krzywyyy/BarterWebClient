@@ -2,7 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ProductCategory} from '../model/enums/product-category.enum';
 import {Specialization} from '../model/enums/specialization.enum';
 import {Filter} from '../model/domain/filter';
-import {FilterDataService} from '../services/filter-data.service';
+import {FilterDataService} from '../services/componentDataSharing/filter-data.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HomeComponent} from '../home/home.component';
 

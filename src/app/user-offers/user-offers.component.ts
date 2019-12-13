@@ -1,6 +1,6 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {Offer} from '../model/domain/offer';
-import {OfferService} from '../services/offer.service';
+import {OfferService} from '../services/api/offer.service';
 import {MatDialog} from '@angular/material';
 
 @Component({

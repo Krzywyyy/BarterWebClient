@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../model/domain/product';
-import {ProductService} from '../services/product.service';
+import {ProductService} from '../services/api/product.service';
 import {Router} from '@angular/router';
 import {ProductCategory} from '../model/enums/product-category.enum';
 import {Specialization} from '../model/enums/specialization.enum';
-import {GoogleAddressService} from '../services/google-address.service';
+import {GoogleAddressService} from '../services/api/google-address.service';
 import {GoogleApiKey} from '../model/maps/google-api-key';
 
 @Component({

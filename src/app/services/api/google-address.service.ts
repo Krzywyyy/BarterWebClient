@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {NetworkProperties} from './network-properties';
+import {NetworkProperties} from '../network-properties';
 import {Observable} from 'rxjs';
-import {Result} from '../model/maps/result';
+import {Result} from '../../model/maps/result';
 import {HttpBackend, HttpClient} from '@angular/common/http';
 
 @Injectable({

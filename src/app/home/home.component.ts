@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../model/domain/product';
-import {ProductService} from '../services/product.service';
+import {ProductService} from '../services/api/product.service';
 import {ProductCategory} from '../model/enums/product-category.enum';
 import {Specialization} from '../model/enums/specialization.enum';
 

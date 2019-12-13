@@ -4,16 +4,16 @@ import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {UserService} from './services/user.service';
+import {UserService} from './services/api/user.service';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material/material.module';
 import {RegisterComponent} from './register/register.component';
 import {FailedRegistrationDataDialogComponent} from './dialogs/failed-registration-data-dialog/failed-registration-data-dialog.component';
 import {HomeComponent} from './home/home.component';
-import {ProductService} from './services/product.service';
+import {ProductService} from './services/api/product.service';
 import {ProductDetailsComponent} from './product-details/product-details.component';
-import {OfferService} from './services/offer.service';
+import {OfferService} from './services/api/offer.service';
 import {AuthenticationInterceptor} from './network/authentication-interceptor';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserProductsComponent } from './user-products/user-products.component';
@@ -21,6 +21,7 @@ import { NewProductComponent } from './new-product/new-product.component';
 import { UserOffersComponent } from './user-offers/user-offers.component';
 import { FilteredProductsComponent } from './filtered-products/filtered-products.component';
 import { ProductFiltersComponent } from './product-filters/product-filters.component';
+import { ProductOffersComponent } from './product-offers/product-offers.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProductFiltersComponent } from './product-filters/product-filters.compo
     NewProductComponent,
     UserOffersComponent,
     FilteredProductsComponent,
-    ProductFiltersComponent
+    ProductFiltersComponent,
+    ProductOffersComponent
   ],
   imports: [
     BrowserModule,

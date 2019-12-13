@@ -52,4 +52,7 @@
     <button class="mx-2 btn btn-secondary" [mat-dialog-close]>Anuluj</button>
   </div>
 </ng-template>
+<div *ngIf="currentUserProduct()">
+  <app-product-offers></app-product-offers>
+</div>
 </body>

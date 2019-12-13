@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Product} from '../model/domain/product';
-import {NetworkProperties} from './network-properties';
+import {Product} from '../../model/domain/product';
+import {NetworkProperties} from '../network-properties';
 import {Observable} from 'rxjs/internal/Observable';
-import {ProductCategory} from '../model/enums/product-category.enum';
-import {Specialization} from '../model/enums/specialization.enum';
+import {ProductCategory} from '../../model/enums/product-category.enum';
+import {Specialization} from '../../model/enums/specialization.enum';
 
 @Injectable({
   providedIn: 'root'
