@@ -11,5 +11,6 @@ export class Product {
     longitude: number;
     category: ProductCategory;
     specialization: Specialization;
+    active: boolean;
     userId: number;
 }

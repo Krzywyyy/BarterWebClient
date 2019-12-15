@@ -14,7 +14,7 @@
     <div class="card-block mx-5 mb-3">
       {{product.description}}
     </div>
-    <div class="pb-3" *ngIf="currentUserProduct()">
+    <div class="pb-3" *ngIf="currentUserProduct() && product.active">
       <div class="d-flex justify-content-end">
         <div class="mr-3">
           <button (click)="showDeleteConfirmation(confirmDelete)" class="btn btn-danger">Usuń produkt</button>
