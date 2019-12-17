@@ -22,10 +22,15 @@ export class FilteredProductsComponent implements OnInit {
   ngOnInit() {
     this.filterDataService.currentFilters.subscribe(filter => {
       this.filter = filter;
-      this.page = 1;
-      this.productService.findAll(this.page, filter.searchText, filter.category, filter.specialization).subscribe(data => {
-          this.products = data;
-          this.scrollToTop();
+      this.productService.findAll(this.page, filter).subscribe(data => {
+          if (data.length > 0 || this.page === 1) {
+            this.products = data;
+            this.scrollToTop();
+          } else {
+            if (this.page > 1) {
+              this.page--;
+            }
+          }
         }
       );
     });

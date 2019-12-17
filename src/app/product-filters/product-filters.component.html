@@ -22,6 +22,11 @@
         </select>
       </div>
     </div>
+    <div class="mb-2">
+      <h3><label for="distance">W odległości do [km]</label></h3>
+      <input id="distance" name="distance" class="form-control" type="number" placeholder="Odległość w kilometrach"
+      [(ngModel)]="filter.distance">
+    </div>
     <div class="row d-flex justify-content-end mx-2">
       <button (click)="clearFilters()" type="button" class="btn btn-danger mx-3">Wyczyść filtry</button>
       <button (click)="changeFilters()" type="button" class="btn btn-secondary px-2">Wyszukaj</button>

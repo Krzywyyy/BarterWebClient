@@ -5,4 +5,7 @@ export class Filter {
   searchText: string;
   category: ProductCategory;
   specialization: Specialization;
+  userLatitude: number;
+  userLongitude: number;
+  distance: number;
 }

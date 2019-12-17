@@ -57,7 +57,10 @@ export class ProductOffersComponent implements OnInit {
 
   consider(offerId: number, template: TemplateRef<any>) {
     this.offerService.consider(offerId, this.accepted).subscribe(
-      () => this.showCosideredInfo(true, template),
+      () => {
+        this.showCosideredInfo(true, template);
+        this.ngOnInit();
+      },
       () => this.showCosideredInfo(false, template)
     );
   }

@@ -3,6 +3,7 @@ import {Product} from '../model/domain/product';
 import {ProductService} from '../services/api/product.service';
 import {ProductCategory} from '../model/enums/product-category.enum';
 import {Specialization} from '../model/enums/specialization.enum';
+import {Filter} from '../model/domain/filter';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.findAll(1).subscribe(
+    this.productService.findAll(1, new Filter()).subscribe(
       data => this.products = data
     );
   }
